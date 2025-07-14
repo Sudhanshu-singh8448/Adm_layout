@@ -106,7 +106,7 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
     // Stairs
     createRoomWithDirectProps({ id: 'stairs-1', name: 'Stairs 1', type: 'stairs', coordinates: { x: 60, y: 0, width: 18, height: 50 }, gates: ['gate-stairs-1'] }),
     createRoomWithDirectProps({ id: 'stairs-2', name: 'Stairs 2', type: 'stairs', coordinates: { x: 290, y: 282, width: 50, height:18 }, gates: ['gate-stairs-2'] }),
-    createRoomWithDirectProps({ id: 'stairs-3', name: 'Stairs 3', type: 'stairs', coordinates: { x: 290, y: 569, width: 18, height: 50 }, gates: ['gate-stairs-3'] }),
+    createRoomWithDirectProps({ id: 'stairs-3', name: 'Stairs 3', type: 'stairs', coordinates: { x: 290, y: 569, width: 50, height: 18 }, gates: ['gate-stairs-3'] }),
     createRoomWithDirectProps({ id: 'stairs-4', name: 'Stairs 4', type: 'stairs', coordinates: { x: 60, y: 751, width: 18, height: 50 }, gates: ['gate-stairs-4'] }),
     createRoomWithDirectProps({ id: 'stairs-5', name: 'Stairs 5', type: 'stairs', coordinates: { x: 60, y: 377, width: 50, height: 20 }, gates: ['gate-stairs-5'] }),
     
@@ -130,56 +130,56 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
   ],
   gates: [
     // Main entrance
-    createGateWithDirectProps({ id: 'gate-main', name: 'Main Entrance', type: 'main', coordinates: { x: 200, y: 800, radius: 8 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-main', name: 'Main Entrance', type: 'main', coordinates: { x: 20, y: 400, radius: 20 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Main corridor gate (central access point)
     createGateWithDirectProps({ id: 'gate-corridor-main', name: 'Main Corridor Access', type: 'corridor', coordinates: { x: 200, y: 400, radius: 8 }, isOpen: true, connectsTo: ['gate-main'] }),
     
     // Room gates connecting to corridor
-    createGateWithDirectProps({ id: 'gate-1', name: 'Gate 1', type: 'room', coordinates: { x: 50, y: 461, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-2', name: 'Gate 2', type: 'room', coordinates: { x: 50, y: 523, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-3', name: 'Gate 3', type: 'room', coordinates: { x: 50, y: 585, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-4', name: 'Gate 4', type: 'room', coordinates: { x: 50, y: 642, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-5', name: 'Gate 5', type: 'room', coordinates: { x: 50, y: 706, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-1', name: 'Gate 1', type: 'room', coordinates: { x: 50, y: 453, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-2', name: 'Gate 2', type: 'room', coordinates: { x: 50, y: 520, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-3', name: 'Gate 3', type: 'room', coordinates: { x: 50, y: 577, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-4', name: 'Gate 4', type: 'room', coordinates: { x: 50, y: 637, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-5', name: 'Gate 5', type: 'room', coordinates: { x: 50, y: 700, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     createGateWithDirectProps({ id: 'gate-14', name: 'Gate 14', type: 'room', coordinates: { x: 50, y: 90, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-15', name: 'Gate 15', type: 'room', coordinates: { x: 50, y: 245, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-15', name: 'Gate 15', type: 'room', coordinates: { x: 50, y: 296, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    createGateWithDirectProps({ id: 'gate-16', name: 'Gate 16', type: 'room', coordinates: { x: 110, y: 435, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-17', name: 'Gate 17', type: 'room', coordinates: { x: 110, y: 593, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-16', name: 'Gate 16', type: 'room', coordinates: { x: 60, y: 435, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-17', name: 'Gate 17', type: 'room', coordinates: { x: 60, y: 674, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    createGateWithDirectProps({ id: 'gate-22', name: 'Gate 22', type: 'room', coordinates: { x: 110, y: 101, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-23', name: 'Gate 23', type: 'room', coordinates: { x: 110, y: 179, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-24', name: 'Gate 24', type: 'room', coordinates: { x: 110, y: 259, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-25', name: 'Gate 25', type: 'room', coordinates: { x: 110, y: 336, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-22', name: 'Gate 22', type: 'room', coordinates: { x: 60, y: 106, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-23', name: 'Gate 23', type: 'room', coordinates: { x: 60, y: 188, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-24', name: 'Gate 24', type: 'room', coordinates: { x: 60, y: 264, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-25', name: 'Gate 25', type: 'room', coordinates: { x: 60, y: 333, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Top side rooms
-    createGateWithDirectProps({ id: 'gate-11', name: 'Gate 11', type: 'room', coordinates: { x: 310, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-12', name: 'Gate 12', type: 'room', coordinates: { x: 229, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-13', name: 'Gate 13', type: 'room', coordinates: { x: 149, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-11', name: 'Gate 11', type: 'room', coordinates: { x: 277, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-12', name: 'Gate 12', type: 'room', coordinates: { x: 251, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-13', name: 'Gate 13', type: 'room', coordinates: { x: 150, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Bottom side rooms
-    createGateWithDirectProps({ id: 'gate-6', name: 'Gate 6', type: 'room', coordinates: { x: 169, y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-7', name: 'Gate 7', type: 'room', coordinates: { x: 289, y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-6', name: 'Gate 6', type: 'room', coordinates: { x: 127, y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-7', name: 'Gate 7', type: 'room', coordinates: { x: 239, y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Right side rooms
-    createGateWithDirectProps({ id: 'gate-10', name: 'Gate 10', type: 'room', coordinates: { x: 350, y: 154, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-9', name: 'Gate 9', type: 'room', coordinates: { x: 350, y: 318, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-10', name: 'Gate 10', type: 'room', coordinates: { x: 350, y: 100, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-9', name: 'Gate 9', type: 'room', coordinates: { x: 350, y: 310, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    createGateWithDirectProps({ id: 'gate-18', name: 'Gate 18', type: 'room', coordinates: { x: 290, y: 258, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-19', name: 'Gate 19', type: 'room', coordinates: { x: 290, y: 200, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-20-alt', name: 'Gate 20', type: 'room', coordinates: { x: 290, y: 140, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-21', name: 'Gate 21', type: 'room', coordinates: { x: 290, y: 87, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-18', name: 'Gate 18', type: 'room', coordinates: { x: 341, y: 251, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-19', name: 'Gate 19', type: 'room', coordinates: { x: 341, y: 193, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-20-alt', name: 'Gate 20', type: 'room', coordinates: { x: 341, y: 134, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-21', name: 'Gate 21', type: 'room', coordinates: { x: 341, y: 79, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Stairs gates
-    createGateWithDirectProps({ id: 'gate-stairs-1', name: 'Stairs 1 Gate', type: 'stairs', coordinates: { x: 61, y: 40, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-2', name: 'Stairs 2 Gate', type: 'stairs', coordinates: { x: 336, y: 286, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-3', name: 'Stairs 3 Gate', type: 'stairs', coordinates: { x: 298, y: 571, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-4', name: 'Stairs 4 Gate', type: 'stairs', coordinates: { x: 62, y: 745, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-5', name: 'Stairs 5 Gate', type: 'stairs', coordinates: { x: 55, y: 383, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-1', name: 'Stairs 1 Gate', type: 'stairs', coordinates: { x: 70, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-2', name: 'Stairs 2 Gate', type: 'stairs', coordinates: { x: 341, y: 290, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-3', name: 'Stairs 3 Gate', type: 'stairs', coordinates: { x: 341, y: 578, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-4', name: 'Stairs 4 Gate', type: 'stairs', coordinates: { x :70 , y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-5', name: 'Stairs 5 Gate', type: 'stairs', coordinates: { x: 60, y: 385, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Library gate
-    createGateWithDirectProps({ id: 'gate-library', name: 'Library Gate', type: 'library', coordinates: { x: 320, y: 587, radius: 5 }, isOpen: true, 
+    createGateWithDirectProps({ id: 'gate-library', name: 'Library Gate', type: 'library', coordinates: { x: 350, y: 745, radius: 5 }, isOpen: true, 
       openingHours: { start: '08:00', end: '22:00' }, connectsTo: ['gate-corridor-main'] }),
   ],
   paths: [
