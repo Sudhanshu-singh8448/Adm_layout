@@ -62,12 +62,12 @@ export const SVGMap: React.FC<SVGMapProps> = ({
     
     switch (room.type) {
       case 'classroom': return '#e5e7eb';
-      case 'office': return '#fef3c7';
-      case 'library': return '#ddd6fe';
-      case 'lab': return '#fed7e2';
-      case 'toilet': return '#d1fae5';
-      case 'stairs': return '#f3f4f6';
-      case 'corridor': return '#f9fafb'; // Light gray for corridor
+      
+      case 'library': return '#0b5d6bff';
+      
+      case 'toilet': return '#3c5d4cff';
+      case 'stairs': return '#695964ff';
+      case 'corridor': return '#e0934cff'; // Light gray for corridor
       default: return '#ffffff';
     }
   };

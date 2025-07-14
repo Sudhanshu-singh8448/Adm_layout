@@ -1,4 +1,4 @@
-import { FloorPlan, Room, Gate , Coordinates, RectangularCoordinates } from '../types';
+import { FloorPlan, Room, Gate ,  RectangularCoordinates } from '../types';
 
 // Create sample data with direct properties for backward compatibility
 const createRoomWithDirectProps = (room: Omit<Room, 'x' | 'y' | 'width' | 'height'>): Room => {
@@ -104,10 +104,11 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
     createRoomWithDirectProps({ id: 'room-10', name: 'Room 10', type: 'classroom', coordinates: { x: 350, y: 43, width: 50, height: 222 }, gates: ['gate-10'] }),
     
     // Stairs
-    createRoomWithDirectProps({ id: 'stairs-1', name: 'Stairs 1', type: 'stairs', coordinates: { x: 60, y: 751, width: 18, height: 51 }, gates: ['gate-stairs-1'] }),
-    createRoomWithDirectProps({ id: 'stairs-2', name: 'Stairs 2', type: 'stairs', coordinates: { x: 340, y: 569, width: 18, height: 51 }, gates: ['gate-stairs-2'] }),
-    createRoomWithDirectProps({ id: 'stairs-3', name: 'Stairs 3', type: 'stairs', coordinates: { x: 340, y: 282, width: 18, height: 50 }, gates: ['gate-stairs-3'] }),
-    createRoomWithDirectProps({ id: 'stairs-4', name: 'Stairs 4', type: 'stairs', coordinates: { x: 110, y: 377, width: 25, height: 50 }, gates: ['gate-stairs-4'] }),
+    createRoomWithDirectProps({ id: 'stairs-1', name: 'Stairs 1', type: 'stairs', coordinates: { x: 60, y: 0, width: 18, height: 50 }, gates: ['gate-stairs-1'] }),
+    createRoomWithDirectProps({ id: 'stairs-2', name: 'Stairs 2', type: 'stairs', coordinates: { x: 290, y: 282, width: 50, height:18 }, gates: ['gate-stairs-2'] }),
+    createRoomWithDirectProps({ id: 'stairs-3', name: 'Stairs 3', type: 'stairs', coordinates: { x: 290, y: 569, width: 18, height: 50 }, gates: ['gate-stairs-3'] }),
+    createRoomWithDirectProps({ id: 'stairs-4', name: 'Stairs 4', type: 'stairs', coordinates: { x: 60, y: 751, width: 18, height: 50 }, gates: ['gate-stairs-4'] }),
+    createRoomWithDirectProps({ id: 'stairs-5', name: 'Stairs 5', type: 'stairs', coordinates: { x: 60, y: 377, width: 50, height: 20 }, gates: ['gate-stairs-5'] }),
     
     // Library with polygon coordinates
     createRoomWithDirectProps({
@@ -171,10 +172,11 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
     createGateWithDirectProps({ id: 'gate-21', name: 'Gate 21', type: 'room', coordinates: { x: 290, y: 87, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Stairs gates
-    createGateWithDirectProps({ id: 'gate-stairs-1', name: 'Stairs 1 Gate', type: 'stairs', coordinates: { x: 69, y: 776, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-2', name: 'Stairs 2 Gate', type: 'stairs', coordinates: { x: 349, y: 594, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-3', name: 'Stairs 3 Gate', type: 'stairs', coordinates: { x: 349, y: 307, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-4', name: 'Stairs 4 Gate', type: 'stairs', coordinates: { x: 122, y: 402, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-1', name: 'Stairs 1 Gate', type: 'stairs', coordinates: { x: 61, y: 40, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-2', name: 'Stairs 2 Gate', type: 'stairs', coordinates: { x: 336, y: 286, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-3', name: 'Stairs 3 Gate', type: 'stairs', coordinates: { x: 298, y: 571, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-4', name: 'Stairs 4 Gate', type: 'stairs', coordinates: { x: 62, y: 745, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-5', name: 'Stairs 5 Gate', type: 'stairs', coordinates: { x: 55, y: 383, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Library gate
     createGateWithDirectProps({ id: 'gate-library', name: 'Library Gate', type: 'library', coordinates: { x: 320, y: 587, radius: 5 }, isOpen: true, 
@@ -195,10 +197,11 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
     { id: 'path-corridor-to-library', from: 'gate-corridor-main', to: 'gate-library', distance: 4, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 320, y: 587 }], isBlocked: false },
     
     // Stairs connections
-    { id: 'path-corridor-to-stairs1', from: 'gate-corridor-main', to: 'gate-stairs-1', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 69, y: 776 }], isBlocked: false },
-    { id: 'path-corridor-to-stairs2', from: 'gate-corridor-main', to: 'gate-stairs-2', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 349, y: 594 }], isBlocked: false },
-    { id: 'path-corridor-to-stairs3', from: 'gate-corridor-main', to: 'gate-stairs-3', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 349, y: 307 }], isBlocked: false },
-    { id: 'path-corridor-to-stairs4', from: 'gate-corridor-main', to: 'gate-stairs-4', distance: 1, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 122, y: 402 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs1', from: 'gate-corridor-main', to: 'gate-stairs-1', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 69, y: 25 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs2', from: 'gate-corridor-main', to: 'gate-stairs-2', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 299, y: 307 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs3', from: 'gate-corridor-main', to: 'gate-stairs-3', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 298, y: 594 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs4', from: 'gate-corridor-main', to: 'gate-stairs-4', distance: 1, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 69, y: 776 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs5', from: 'gate-corridor-main', to: 'gate-stairs-5', distance: 1, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 72, y: 402 }], isBlocked: false },
   ],
   specialAreas: {
     admCompound: {
