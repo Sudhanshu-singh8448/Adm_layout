@@ -1,22 +1,28 @@
+export interface Coordinates {
+  x:number;
+  y:number;
+}
+
+export interface RectangularCoordinates {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+
+}
+
 export interface Room {
   id: string;
   name: string;
   type: 'classroom' | 'library' | 'toilet' | 'stairs' ;
-  coordinates: {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-  };
+  coordinates: RectangularCoordinates | Coordinates[]; // Support both rectangular and polygon
   // Add direct properties for backward compatibility
   x: number;
   y: number;
   width: number;
   height: number;
-  gates: string[]; // Array of gate IDs that connect to this room
-  description?: string;
-  capacity?: number;
-  amenities?: string[];
+  gates: string[]; 
+  
 }
 
 export interface Gate {
