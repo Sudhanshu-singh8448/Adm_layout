@@ -42,85 +42,74 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
   name: 'ADM Building Floor Plan',
   svgViewBox: '0 0 400 800',
   rooms: [
-    // Front  Right front side rooms
+    // Main Corridor (polygon shape connecting all areas)
+    createRoomWithDirectProps({
+      id: 'main-corridor',
+      name: 'Main Corridor',
+      type: 'corridor',
+      coordinates: [
+        { x: 350, y: 740 },
+        { x: 350, y: 750 },
+        { x: 50, y: 750 },
+        { x: 50, y: 50 },
+        { x: 350, y: 50 },
+        { x: 350, y: 587 },
+        { x: 340, y: 587 },
+        { x: 340, y: 60 },
+        { x: 60, y: 60 },
+        { x: 60, y: 740 },
+        { x: 350, y: 740 }
+      ],
+      gates: ['gate-corridor-main']
+    }),
+
+    // Front Right front side rooms
     createRoomWithDirectProps({ id: 'room-1', name: 'Room 1', type: 'classroom', coordinates: { x: 0, y: 430, width: 50, height: 62 }, gates: ['gate-1'] }),
-
     createRoomWithDirectProps({ id: 'room-2', name: 'Room 2', type: 'classroom', coordinates: { x: 0, y: 492, width: 50, height: 62 }, gates: ['gate-2'] }),
-
-     createRoomWithDirectProps({ id: 'room-3', name: 'Room 3', type: 'classroom', coordinates: { x: 0, y: 554, width: 50, height: 62 }, gates: ['gate-3'] }),
-
+    createRoomWithDirectProps({ id: 'room-3', name: 'Room 3', type: 'classroom', coordinates: { x: 0, y: 554, width: 50, height: 62 }, gates: ['gate-3'] }),
     createRoomWithDirectProps({ id: 'room-4', name: 'Room 4', type: 'classroom', coordinates: { x: 0, y: 613, width: 50, height: 59 }, gates: ['gate-4'] }),
-
     createRoomWithDirectProps({ id: 'room-5', name: 'Room 5', type: 'classroom', coordinates: { x: 0, y: 675, width: 50, height: 62 }, gates: ['gate-5'] }),
 
-    //Front  Right   Back-side rooms
-
+    // Front Right Back-side rooms
     createRoomWithDirectProps({ id: 'room-16', name: 'Room 16', type: 'classroom', coordinates: { x: 60, y: 425, width: 50, height: 21 }, gates: ['gate-16'] }),
-
     createRoomWithDirectProps({ id: 'room-17', name: 'Room 17', type: 'classroom', coordinates: { x: 60, y: 446, width: 50, height: 294 }, gates: ['gate-17'] }),
 
-    
-
-    // front left front side room 
-
+    // Front left front side rooms
     createRoomWithDirectProps({ id: 'room-14', name: 'Room 14', type: 'classroom', coordinates: { x: 0, y: 60, width: 50, height: 60 }, gates: ['gate-14'] }),
+    createRoomWithDirectProps({ id: 'room-15', name: 'Room 15', type: 'classroom', coordinates: { x: 0, y: 120, width: 50, height: 251 }, gates: ['gate-15'] }),
     
-   
-    createRoomWithDirectProps({ id: 'room-15', name: 'Room 15', type: 'classroom', coordinates: { x: 0, y: 120, width: 50, height: 251 }, gates: ['gate-15']  }),
-    
-    //   front  left back side room 
-
+    // Front left back side rooms
     createRoomWithDirectProps({ id: 'room-22', name: 'Room 22', type: 'classroom', coordinates: { x: 60, y: 60, width: 50, height: 81.26 }, gates: ['gate-22'] }),
-
     createRoomWithDirectProps({ id: 'room-23', name: 'Room 23', type: 'classroom', coordinates: { x: 60, y: 141.26, width: 50, height: 77.24 }, gates: ['gate-23'] }),
-
     createRoomWithDirectProps({ id: 'room-24', name: 'Room 24', type: 'classroom', coordinates: { x: 60, y: 218.5, width: 50, height: 81.26 }, gates: ['gate-24'] }),
-
     createRoomWithDirectProps({ id: 'room-25', name: 'Room 26', type: 'classroom', coordinates: { x: 60, y: 295.74, width: 50, height: 81.26 }, gates: ['gate-25'] }),
-
     
-    //right side room 
-
+    // Right side rooms
     createRoomWithDirectProps({ id: 'room-6', name: 'Room 8', type: 'classroom', coordinates: { x: 111, y: 750, width: 117, height: 50 }, gates: ['gate-6'] }),
-
     createRoomWithDirectProps({ id: 'room-7', name: 'Room 7', type: 'classroom', coordinates: { x: 228, y: 750, width: 122, height: 50 }, gates: ['gate-7'] }),
 
-     //left side room 
-
+    // Left side rooms
     createRoomWithDirectProps({ id: 'room-11', name: 'Room 11', type: 'classroom', coordinates: { x: 271, y: 0, width: 79, height: 50 }, gates: ['gate-11'] }),
-
     createRoomWithDirectProps({ id: 'room-12', name: 'Room 12', type: 'classroom', coordinates: { x: 187, y: 0, width: 84, height: 50 }, gates: ['gate-12'] }),
-
     createRoomWithDirectProps({ id: 'room-13', name: 'Room 13', type: 'classroom', coordinates: { x: 111, y: 0, width: 76, height: 50 }, gates: ['gate-13'] }),
    
-   
-    //  back  Right  front side rooms
-
+    // Back Right front side rooms
     createRoomWithDirectProps({ id: 'room-21', name: 'Room 21', type: 'classroom', coordinates: { x: 290, y: 59, width: 51, height: 55 }, gates: ['gate-21'] }),
-
-
     createRoomWithDirectProps({ id: 'room-20', name: 'Room 20', type: 'classroom', coordinates: { x: 289, y: 114, width: 51, height: 53 }, gates: ['gate-20-alt'] }),
-
-    createRoomWithDirectProps({ id: 'room-19', name: 'Room 19', type: 'classroom', coordinates: { x:290, y: 167, width: 51, height: 66 }, gates: ['gate-19'] }),
-
+    createRoomWithDirectProps({ id: 'room-19', name: 'Room 19', type: 'classroom', coordinates: { x: 290, y: 167, width: 51, height: 66 }, gates: ['gate-19'] }),
     createRoomWithDirectProps({ id: 'room-18', name: 'Room 18', type: 'classroom', coordinates: { x: 290, y: 233, width: 51, height: 49 }, gates: ['gate-18'] }),
-
     
-    //  back  Right  back  side rooms
-
-    createRoomWithDirectProps({ id: 'room-9', name: 'Room 9', type: 'classroom', coordinates: { x: 350, y: 265, width: 50, height: 106 }, gates: ['gate-21'] }),
+    // Back Right back side rooms
+    createRoomWithDirectProps({ id: 'room-9', name: 'Room 9', type: 'classroom', coordinates: { x: 350, y: 265, width: 50, height: 106 }, gates: ['gate-9'] }),
+    createRoomWithDirectProps({ id: 'room-10', name: 'Room 10', type: 'classroom', coordinates: { x: 350, y: 43, width: 50, height: 222 }, gates: ['gate-10'] }),
     
-    createRoomWithDirectProps({ id: 'room-10', name: 'Room 10', type: 'classroom', coordinates: { x: 290, y: 59, width: 51, height: 55 }, gates: ['gate-10'] }),
-    
-    
-    
-    // Stairs and toilets
+    // Stairs
     createRoomWithDirectProps({ id: 'stairs-1', name: 'Stairs 1', type: 'stairs', coordinates: { x: 60, y: 751, width: 18, height: 51 }, gates: ['gate-stairs-1'] }),
     createRoomWithDirectProps({ id: 'stairs-2', name: 'Stairs 2', type: 'stairs', coordinates: { x: 340, y: 569, width: 18, height: 51 }, gates: ['gate-stairs-2'] }),
     createRoomWithDirectProps({ id: 'stairs-3', name: 'Stairs 3', type: 'stairs', coordinates: { x: 340, y: 282, width: 18, height: 50 }, gates: ['gate-stairs-3'] }),
     createRoomWithDirectProps({ id: 'stairs-4', name: 'Stairs 4', type: 'stairs', coordinates: { x: 110, y: 377, width: 25, height: 50 }, gates: ['gate-stairs-4'] }),
     
-     // Library with polygon coordinates
+    // Library with polygon coordinates
     createRoomWithDirectProps({
       id: 'library',
       name: 'Library',
@@ -135,107 +124,85 @@ export const FLOOR_PLAN_DATA: FloorPlan = {
         { x: 350, y: 587 },
         { x: 350, y: 425 }
       ],
-      gates: ['gate-8']
+      gates: ['gate-library']
     }),
   ],
   gates: [
     // Main entrance
-    createGateWithDirectProps({ id: 'gate-main', name: 'Main Entrance', type: 'main', coordinates: { x: 200, y: 800, radius: 8 }, isOpen: true, connectsTo: ['adm-compound'] }),
+    createGateWithDirectProps({ id: 'gate-main', name: 'Main Entrance', type: 'main', coordinates: { x: 200, y: 800, radius: 8 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    // Room gates (left side)
-    createGateWithDirectProps({ id: 'gate-5', name: 'Gate 1', type: 'room', coordinates: { x: 46, y: 700, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-left'] }),
-   
-    createGateWithDirectProps({ id: 'gate-4', name: 'Gate 2', type: 'room', coordinates: { x: 43, y: 637, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-3', name: 'Gate 3', type: 'room', coordinates: { x: 43, y: 577, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-2', name: 'Gate 4', type: 'room', coordinates: { x: 43, y: 520, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-1', name: 'Gate 5', type: 'room', coordinates: { x: 43, y: 453, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-6', name: 'Gate 6', type: 'room', coordinates: { x: 127, y: 744, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-7', name: 'Gate 7', type: 'room', coordinates: { x: 239 , y: 744, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-9', name: 'Gate 9', type: 'room', coordinates: { x: 346 , y: 310, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-11', name: 'Gate 11', type: 'room', coordinates: { x: 277 , y: 39, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-12', name: 'Gate 12', type: 'room', coordinates: { x: 251 , y: 39, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-13', name: 'Gate 13', type: 'room', coordinates: { x: 127 , y: 39, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
+    // Main corridor gate (central access point)
+    createGateWithDirectProps({ id: 'gate-corridor-main', name: 'Main Corridor Access', type: 'corridor', coordinates: { x: 200, y: 400, radius: 8 }, isOpen: true, connectsTo: ['gate-main'] }),
     
-    createGateWithDirectProps({ id: 'gate-13', name: 'Gate 13', type: 'room', coordinates: { x: 127 , y: 39, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-14', name: 'Gate 14', type: 'room', coordinates: { x: 43 , y: 90, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-15', name: 'Gate 15', type: 'room', coordinates: { x: 43 , y: 296, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-16', name: 'Gate 16', type: 'room', coordinates: { x: 57 , y: 430, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-17', name: 'Gate 17', type: 'room', coordinates: { x: 57 , y: 674, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-18', name: 'Gate 18', type: 'room', coordinates: { x: 334 , y: 251, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-19', name: 'Gate 19', type: 'room', coordinates: { x: 334 , y: 193, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-20', name: 'Gate 20', type: 'room', coordinates: { x: 334 , y: 134, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-21', name: 'Gate 21', type: 'room', coordinates: { x: 334 , y: 79, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-22', name: 'Gate 22', type: 'room', coordinates: { x: 57, y: 106, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-23', name: 'Gate 23', type: 'room', coordinates: { x: 57, y: 188, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-    createGateWithDirectProps({ id: 'gate-24', name: 'Gate 24', type: 'room', coordinates: { x: 57, y: 264, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
-     createGateWithDirectProps({ id: 'gate-25', name: 'Gate 25', type: 'room', coordinates: { x: 57, y: 333, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-left'] }),
-
+    // Room gates connecting to corridor
+    createGateWithDirectProps({ id: 'gate-1', name: 'Gate 1', type: 'room', coordinates: { x: 50, y: 461, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-2', name: 'Gate 2', type: 'room', coordinates: { x: 50, y: 523, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-3', name: 'Gate 3', type: 'room', coordinates: { x: 50, y: 585, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-4', name: 'Gate 4', type: 'room', coordinates: { x: 50, y: 642, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-5', name: 'Gate 5', type: 'room', coordinates: { x: 50, y: 706, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-
+    createGateWithDirectProps({ id: 'gate-14', name: 'Gate 14', type: 'room', coordinates: { x: 50, y: 90, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-15', name: 'Gate 15', type: 'room', coordinates: { x: 50, y: 245, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    // Corridor gates
-    createGateWithDirectProps({ id: 'gate-corridor-left', name: 'Left Corridor', type: 'corridor', coordinates: { x: 50, y: 400, radius: 6 }, isOpen: true, connectsTo: ['adm-compound', 'gate-corridor-center'] }),
-    createGateWithDirectProps({ id: 'gate-corridor-center', name: 'Center Corridor', type: 'corridor', coordinates: { x: 200, y: 400, radius: 6 }, isOpen: true, connectsTo: ['gate-corridor-left', 'gate-corridor-right', 'gate-library-corridor'] }),
-    createGateWithDirectProps({ id: 'gate-corridor-right', name: 'Right Corridor', type: 'corridor', coordinates: { x: 350, y: 400, radius: 6 }, isOpen: true, connectsTo: ['gate-corridor-center', 'adm-compound'] }),
+    createGateWithDirectProps({ id: 'gate-16', name: 'Gate 16', type: 'room', coordinates: { x: 110, y: 435, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-17', name: 'Gate 17', type: 'room', coordinates: { x: 110, y: 593, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    // Library gates
-    createGateWithDirectProps({ id: 'gate-library', name: 'Library Gate', type: 'library', coordinates: { x: 351, y: 749, radius: 5 }, isOpen: false, 
-      openingHours: { start: '10:00', end: '20:00' }, connectsTo: ['gate-library-corridor'], 
-      accessRules: { timeDependent: true, allowedDirections: ['out'] } }),
-    createGateWithDirectProps({ id: 'gate-library-corridor', name: 'Library Corridor Gate', type: 'corridor', coordinates: { x: 120, y: 400, radius: 6 }, isOpen: true,
-      accessRules: { timeDependent: true, restrictedAfter: '17:00' }, connectsTo: ['gate-corridor-center'] }),
+    createGateWithDirectProps({ id: 'gate-22', name: 'Gate 22', type: 'room', coordinates: { x: 110, y: 101, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-23', name: 'Gate 23', type: 'room', coordinates: { x: 110, y: 179, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-24', name: 'Gate 24', type: 'room', coordinates: { x: 110, y: 259, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-25', name: 'Gate 25', type: 'room', coordinates: { x: 110, y: 336, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    
+    // Top side rooms
+    createGateWithDirectProps({ id: 'gate-11', name: 'Gate 11', type: 'room', coordinates: { x: 310, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-12', name: 'Gate 12', type: 'room', coordinates: { x: 229, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-13', name: 'Gate 13', type: 'room', coordinates: { x: 149, y: 50, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    
+    // Bottom side rooms
+    createGateWithDirectProps({ id: 'gate-6', name: 'Gate 6', type: 'room', coordinates: { x: 169, y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-7', name: 'Gate 7', type: 'room', coordinates: { x: 289, y: 750, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    
+    // Right side rooms
+    createGateWithDirectProps({ id: 'gate-10', name: 'Gate 10', type: 'room', coordinates: { x: 350, y: 154, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-9', name: 'Gate 9', type: 'room', coordinates: { x: 350, y: 318, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    
+    createGateWithDirectProps({ id: 'gate-18', name: 'Gate 18', type: 'room', coordinates: { x: 290, y: 258, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-19', name: 'Gate 19', type: 'room', coordinates: { x: 290, y: 200, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-20-alt', name: 'Gate 20', type: 'room', coordinates: { x: 290, y: 140, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-21', name: 'Gate 21', type: 'room', coordinates: { x: 290, y: 87, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
     // Stairs gates
-    createGateWithDirectProps({ id: 'gate-stairs-1', name: 'Stairs 1 Gate', type: 'stairs', coordinates: { x: 69, y: 776, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-bottom'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-2', name: 'Stairs 2 Gate', type: 'stairs', coordinates: { x: 349, y: 594, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-right'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-3', name: 'Stairs 3 Gate', type: 'stairs', coordinates: { x: 349, y: 307, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-right'] }),
-    createGateWithDirectProps({ id: 'gate-stairs-4', name: 'Stairs 4 Gate', type: 'stairs', coordinates: { x: 122, y: 402, radius: 5 }, isOpen: false, connectsTo: ['gate-corridor-center'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-1', name: 'Stairs 1 Gate', type: 'stairs', coordinates: { x: 69, y: 776, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-2', name: 'Stairs 2 Gate', type: 'stairs', coordinates: { x: 349, y: 594, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-3', name: 'Stairs 3 Gate', type: 'stairs', coordinates: { x: 349, y: 307, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
+    createGateWithDirectProps({ id: 'gate-stairs-4', name: 'Stairs 4 Gate', type: 'stairs', coordinates: { x: 122, y: 402, radius: 5 }, isOpen: true, connectsTo: ['gate-corridor-main'] }),
     
-    // Top and bottom corridor gates
-    createGateWithDirectProps({ id: 'gate-corridor-top', name: 'Top Corridor Gate', type: 'corridor', coordinates: { x: 200, y: 25, radius: 6 }, isOpen: true, connectsTo: ['adm-compound'] }),
-    createGateWithDirectProps({ id: 'gate-corridor-bottom', name: 'Bottom Corridor Gate', type: 'corridor', coordinates: { x: 200, y: 775, radius: 6 }, isOpen: true, connectsTo: ['adm-compound'] }),
+    // Library gate
+    createGateWithDirectProps({ id: 'gate-library', name: 'Library Gate', type: 'library', coordinates: { x: 320, y: 587, radius: 5 }, isOpen: true, 
+      openingHours: { start: '08:00', end: '22:00' }, connectsTo: ['gate-corridor-main'] }),
   ],
   paths: [
-    // Main paths through ADM compound
-    { id: 'path-main-to-left', from: 'gate-main', to: 'gate-corridor-left', distance: 10, type: 'fast-travel', coordinates: [{ x: 200, y: 800 }, { x: 50, y: 400 }], isBlocked: false },
-    { id: 'path-main-to-center', from: 'gate-main', to: 'gate-corridor-center', distance: 8, type: 'fast-travel', coordinates: [{ x: 200, y: 800 }, { x: 200, y: 400 }], isBlocked: false },
-    { id: 'path-main-to-right', from: 'gate-main', to: 'gate-corridor-right', distance: 10, type: 'fast-travel', coordinates: [{ x: 200, y: 800 }, { x: 350, y: 400 }], isBlocked: false },
-    { id: 'path-main-to-top', from: 'gate-main', to: 'gate-corridor-top', distance: 15, type: 'fast-travel', coordinates: [{ x: 200, y: 800 }, { x: 200, y: 25 }], isBlocked: false },
-    { id: 'path-main-to-bottom', from: 'gate-main', to: 'gate-corridor-bottom', distance: 5, type: 'fast-travel', coordinates: [{ x: 200, y: 800 }, { x: 200, y: 775 }], isBlocked: false },
+    // Main entrance to corridor
+    { id: 'path-main-to-corridor', from: 'gate-main', to: 'gate-corridor-main', distance: 5, type: 'corridor', coordinates: [{ x: 200, y: 800 }, { x: 200, y: 400 }], isBlocked: false },
     
-    // Corridor connections
-    { id: 'path-left-to-center', from: 'gate-corridor-left', to: 'gate-corridor-center', distance: 5, type: 'corridor', coordinates: [{ x: 50, y: 400 }, { x: 200, y: 400 }], isBlocked: false },
-    { id: 'path-center-to-right', from: 'gate-corridor-center', to: 'gate-corridor-right', distance: 5, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 350, y: 400 }], isBlocked: false },
-    { id: 'path-center-to-library', from: 'gate-corridor-center', to: 'gate-library-corridor', distance: 3, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 120, y: 400 }], isBlocked: false,
-      accessRules: { timeDependent: true, allowedTimes: [{ start: '00:00', end: '17:00' }] } },
+    // Room connections to main corridor
+    { id: 'path-corridor-to-room1', from: 'gate-corridor-main', to: 'gate-1', distance: 3, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 50, y: 461 }], isBlocked: false },
+    { id: 'path-corridor-to-room2', from: 'gate-corridor-main', to: 'gate-2', distance: 3, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 50, y: 523 }], isBlocked: false },
+    { id: 'path-corridor-to-room3', from: 'gate-corridor-main', to: 'gate-3', distance: 3, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 50, y: 585 }], isBlocked: false },
+    { id: 'path-corridor-to-room4', from: 'gate-corridor-main', to: 'gate-4', distance: 3, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 50, y: 642 }], isBlocked: false },
+    { id: 'path-corridor-to-room5', from: 'gate-corridor-main', to: 'gate-5', distance: 3, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 50, y: 706 }], isBlocked: false },
     
-    // Library path
-    { id: 'path-library-corridor-to-library', from: 'gate-library-corridor', to: 'gate-library', distance: 2, type: 'corridor', coordinates: [{ x: 120, y: 400 }, { x: 94, y: 25 }], isBlocked: false },
+    // Library connection
+    { id: 'path-corridor-to-library', from: 'gate-corridor-main', to: 'gate-library', distance: 4, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 320, y: 587 }], isBlocked: false },
+    
+    // Stairs connections
+    { id: 'path-corridor-to-stairs1', from: 'gate-corridor-main', to: 'gate-stairs-1', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 69, y: 776 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs2', from: 'gate-corridor-main', to: 'gate-stairs-2', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 349, y: 594 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs3', from: 'gate-corridor-main', to: 'gate-stairs-3', distance: 2, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 349, y: 307 }], isBlocked: false },
+    { id: 'path-corridor-to-stairs4', from: 'gate-corridor-main', to: 'gate-stairs-4', distance: 1, type: 'corridor', coordinates: [{ x: 200, y: 400 }, { x: 122, y: 402 }], isBlocked: false },
   ],
   specialAreas: {
     admCompound: {
-      coordinates: { x: 120, y: 400, width: 160, height: 200 },
+      coordinates: { x: 50, y: 50, width: 300, height: 700 },
       isFastTravel: true,
     },
   },

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Room, Gate, RouteStep } from '../types';
+import { Room, Gate, RouteStep, Coordinates } from '../types';
 
 interface SVGMapProps {
   rooms: Room[];
@@ -67,8 +67,16 @@ export const SVGMap: React.FC<SVGMapProps> = ({
       case 'lab': return '#fed7e2';
       case 'toilet': return '#d1fae5';
       case 'stairs': return '#f3f4f6';
+      case 'corridor': return '#f9fafb'; // Light gray for corridor
       default: return '#ffffff';
     }
+  };
+
+  // Get room stroke color
+  const getRoomStroke = (room: Room): string => {
+    if (selectedRoom === room.id) return '#1d4ed8';
+    if (room.type === 'corridor') return '#d1d5db'; // Subtle border for corridor
+    return '#9ca3af';
   };
 
   // Get gate color based on accessibility
@@ -127,12 +135,29 @@ export const SVGMap: React.FC<SVGMapProps> = ({
     return segments;
   };
 
+  // Helper function to convert coordinates array to SVG path
+  const coordinatesToPath = (coordinates: Coordinates[]): string => {
+    if (coordinates.length === 0) return '';
+    
+    const pathCommands = coordinates.map((coord, index) => {
+      const command = index === 0 ? 'M' : 'L';
+      return `${command} ${coord.x} ${coord.y}`;
+    });
+    
+    return `${pathCommands.join(' ')} Z`; // Close the path
+  };
+
+  // Check if room has polygon coordinates
+  const isPolygonRoom = (room: Room): boolean => {
+    return Array.isArray(room.coordinates);
+  };
+
   return (
     <div className="w-full h-full bg-gray-100 overflow-hidden relative">
       <svg
         ref={svgRef}
         className="w-full h-full cursor-move"
-        viewBox="0 0 1200 800"
+        viewBox="0 0 400 800"
         onWheel={handleWheel}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -179,84 +204,89 @@ export const SVGMap: React.FC<SVGMapProps> = ({
               fill="#f59e0b"
             />
           </marker>
+          
+          {/* Corridor pattern */}
+          <pattern
+            id="corridorPattern"
+            width="4"
+            height="4"
+            patternUnits="userSpaceOnUse"
+          >
+            <rect width="4" height="4" fill="#f9fafb"/>
+            <path d="M 0 4 L 4 0 M -1 1 L 1 -1 M 3 5 L 5 3" stroke="#e5e7eb" strokeWidth="0.5"/>
+          </pattern>
         </defs>
         
         <rect width="100%" height="100%" fill="url(#grid)" />
         
         {/* Building outline */}
         <rect
-          x="50"
-          y="50"
-          width="1100"
-          height="700"
+          x="0"
+          y="0"
+          width="400"
+          height="800"
           fill="none"
           stroke="#374151"
-          strokeWidth="3"
-        />
-        
-        {/* ADM Compound (Fast Travel Zone) */}
-        <rect
-          x="100"
-          y="100"
-          width="200"
-          height="150"
-          fill="#fef3c7"
-          stroke="#f59e0b"
           strokeWidth="2"
-          strokeDasharray="5,5"
-          opacity="0.7"
         />
-        <text x="200" y="180" textAnchor="middle" className="text-sm font-semibold" fill="#92400e">
-          ADM Compound
-        </text>
-        
-        {/* Main Corridor */}
-        <rect
-          x="350"
-          y="200"
-          width="500"
-          height="80"
-          fill="#f3f4f6"
-          stroke="#9ca3af"
-          strokeWidth="1"
-        />
-        <text x="600" y="245" textAnchor="middle" className="text-sm" fill="#4b5563">
-          Main Corridor
-        </text>
         
         {/* Render Rooms */}
         {rooms.map((room) => (
           <g key={room.id}>
-            <rect
-              x={room.x}
-              y={room.y}
-              width={room.width}
-              height={room.height}
-              fill={getRoomColor(room)}
-              stroke={selectedRoom === room.id ? '#1d4ed8' : '#9ca3af'}
-              strokeWidth={selectedRoom === room.id ? 3 : 1}
-              className="cursor-pointer transition-all duration-200"
-              onClick={() => onRoomSelect(room.id)}
-            />
-            <text
-              x={room.x + room.width / 2}
-              y={room.y + room.height / 2}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              className="text-xs font-medium pointer-events-none"
-              fill={selectedRoom === room.id ? '#ffffff' : '#374151'}
-            >
-              {room.name}
-            </text>
-            {/* Room number */}
-            <text
-              x={room.x + 5}
-              y={room.y + 15}
-              className="text-xs font-bold pointer-events-none"
-              fill={selectedRoom === room.id ? '#ffffff' : '#6b7280'}
-            >
-              {room.id}
-            </text>
+            {isPolygonRoom(room) ? (
+              // Render polygon room (like library and corridor)
+              <path
+                d={coordinatesToPath(room.coordinates as Coordinates[])}
+                fill={room.type === 'corridor' ? 'url(#corridorPattern)' : getRoomColor(room)}
+                stroke={getRoomStroke(room)}
+                strokeWidth={selectedRoom === room.id ? 3 : room.type === 'corridor' ? 1 : 1}
+                className={`cursor-pointer transition-all duration-200 ${
+                  room.type === 'corridor' ? 'opacity-80' : ''
+                }`}
+                onClick={() => onRoomSelect(room.id)}
+              />
+            ) : (
+              // Render rectangular room
+              <rect
+                x={room.x}
+                y={room.y}
+                width={room.width}
+                height={room.height}
+                fill={getRoomColor(room)}
+                stroke={getRoomStroke(room)}
+                strokeWidth={selectedRoom === room.id ? 3 : 1}
+                className="cursor-pointer transition-all duration-200"
+                onClick={() => onRoomSelect(room.id)}
+              />
+            )}
+            
+            {/* Room label (only for non-corridor rooms or selected corridor) */}
+            {(room.type !== 'corridor' || selectedRoom === room.id) && (
+              <text
+                x={room.x + room.width / 2}
+                y={room.y + room.height / 2}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className={`text-xs font-medium pointer-events-none ${
+                  room.type === 'corridor' ? 'text-gray-400' : ''
+                }`}
+                fill={selectedRoom === room.id ? '#ffffff' : room.type === 'corridor' ? '#9ca3af' : '#374151'}
+              >
+                {room.name}
+              </text>
+            )}
+            
+            {/* Room ID (only for non-corridor rooms) */}
+            {room.type !== 'corridor' && (
+              <text
+                x={room.x + 5}
+                y={room.y + 15}
+                className="text-xs font-bold pointer-events-none"
+                fill={selectedRoom === room.id ? '#ffffff' : '#6b7280'}
+              >
+                {room.id}
+              </text>
+            )}
           </g>
         ))}
         
@@ -266,20 +296,24 @@ export const SVGMap: React.FC<SVGMapProps> = ({
             <circle
               cx={gate.x}
               cy={gate.y}
-              r="8"
+              r={gate.type === 'main' ? 8 : gate.type === 'corridor' ? 6 : 5}
               fill={getGateColor(gate)}
               stroke="#ffffff"
               strokeWidth="2"
+              className={gate.type === 'corridor' ? 'opacity-70' : ''}
             />
-            <text
-              x={gate.x}
-              y={gate.y - 15}
-              textAnchor="middle"
-              className="text-xs font-medium"
-              fill="#374151"
-            >
-              {gate.name}
-            </text>
+            {/* Gate label (only for main and important gates) */}
+            {(gate.type === 'main' || gate.type === 'library') && (
+              <text
+                x={gate.x}
+                y={gate.y - 12}
+                textAnchor="middle"
+                className="text-xs font-medium"
+                fill="#374151"
+              >
+                {gate.name}
+              </text>
+            )}
           </g>
         ))}
         
@@ -350,20 +384,6 @@ export const SVGMap: React.FC<SVGMapProps> = ({
             })}
           </>
         )}
-        
-        {/* Direction Arrow (ADM Compound to Corridor) */}
-        <line
-          x1="300"
-          y1="175"
-          x2="350"
-          y2="220"
-          stroke="#f59e0b"
-          strokeWidth="3"
-          markerEnd="url(#arrowhead)"
-        />
-        <text x="325" y="195" textAnchor="middle" className="text-xs" fill="#92400e">
-          Fast Route
-        </text>
       </svg>
       
       {/* Map Controls */}
@@ -397,16 +417,16 @@ export const SVGMap: React.FC<SVGMapProps> = ({
             <span>Classroom</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-yellow-100 border border-yellow-400"></div>
-            <span>Office</span>
-          </div>
-          <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-purple-100 border border-purple-400"></div>
             <span>Library</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-green-100 border border-green-400"></div>
-            <span>Toilet</span>
+            <div className="w-4 h-4 bg-gray-50 border border-gray-300" style={{backgroundImage: 'repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 2px, #e5e7eb 2px, #e5e7eb 4px)'}}></div>
+            <span>Corridor</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 bg-gray-100 border border-gray-400"></div>
+            <span>Stairs</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>

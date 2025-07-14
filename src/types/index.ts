@@ -1,6 +1,6 @@
 export interface Coordinates {
-  x:number;
-  y:number;
+  x: number;
+  y: number;
 }
 
 export interface RectangularCoordinates {
@@ -8,13 +8,12 @@ export interface RectangularCoordinates {
   y: number;
   width: number;
   height: number;
-
 }
 
 export interface Room {
   id: string;
   name: string;
-  type: 'classroom' | 'library' | 'toilet' | 'stairs' ;
+  type: 'classroom' | 'library' | 'toilet' | 'stairs' | 'corridor'; // Added corridor type
   coordinates: RectangularCoordinates | Coordinates[]; // Support both rectangular and polygon
   // Add direct properties for backward compatibility
   x: number;
@@ -22,7 +21,6 @@ export interface Room {
   width: number;
   height: number;
   gates: string[]; 
-  
 }
 
 export interface Gate {
@@ -61,10 +59,7 @@ export interface Path {
   to: string;   // Gate ID or special area
   distance: number;
   type: 'corridor' | 'stairs' | 'outdoor' | 'fast-travel';
-  coordinates: {
-    x: number;
-    y: number;
-  }[];
+  coordinates: Coordinates[];
   isBlocked: boolean;
   accessRules?: {
     timeDependent: boolean;
